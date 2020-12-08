@@ -4,6 +4,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
+    user_logged_in
     @events = Event.all
   end
 
@@ -25,6 +26,11 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
+    if current_user
+    @event.user_id = current_user.id 
+    else
+      respond_to new_user_session_url
+    end
 
     respond_to do |format|
       if @event.save
@@ -71,4 +77,13 @@ class EventsController < ApplicationController
     def event_params
       params.require(:event).permit(:title, :date)
     end
+
+    def user_logged_in
+      if current_user
+        true
+      else
+        redirect_to new_user_session_url
+      end
+    end
+
 end
