@@ -9,6 +9,12 @@
   <strong>Date:</strong>
   <%= @event.date %>
 </p>
+<h1>Attendees</h1>
+<% @event.attendances.each do |attendance| %>
+  
+   <td><%= attendance.user.name %></td>
 
+  <% end %>
+<br>
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

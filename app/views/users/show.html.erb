@@ -1,0 +1,9 @@
+<h1>You are here !</h1>
+
+<% @users.attendances.each do |attendance| %>
+  
+   <td><%= attendance.event.title%></td>
+   <br/>
+   <td><%= attendance.event.date%></td>
+
+  <% end %>
