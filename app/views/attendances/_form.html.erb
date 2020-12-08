@@ -1,0 +1,32 @@
+<%= form_with(model: attandance, local: true) do |form| %>
+  <% if attandance.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(attandance.errors.count, "error") %> prohibited this attandance from being saved:</h2>
+
+      <ul>
+        <% attandance.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :attendee_id %>
+    <%= form.text_field :attendee_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :users %>
+    <%= form.text_field :users %>
+  </div>
+
+  <div class="field">
+    <%= form.label :attended_event_id %>
+    <%= form.text_field :attended_event_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
