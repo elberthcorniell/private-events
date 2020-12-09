@@ -1,3 +1,4 @@
+# rubocop:disable Layout/LineLength
 require 'test_helper'
 
 class AttandancesControllerTest < ActionDispatch::IntegrationTest
@@ -46,3 +47,4 @@ class AttandancesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to attandances_url
   end
 end
+# rubocop:enable Layout/LineLength
