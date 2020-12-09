@@ -1,5 +1,3 @@
-# rubocop:disable Layout/LineLength
-
 class UsersController < ApplicationController
   def index
     if current_user
@@ -14,6 +12,4 @@ class UsersController < ApplicationController
     @upcoming_events = current_user.attended_events.upcoming
     @past_events = current_user.attended_events.previous
   end
-
 end
-# rubocop:enable Layout/LineLength
