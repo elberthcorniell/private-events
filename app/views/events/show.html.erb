@@ -17,8 +17,8 @@
   <% @event.attendances.each do |attendance| %>
     
     <tr>
-      <td><%= attendance.user.id %></td>
-      <td><%= attendance.user.name %></td>
+      <td><%= attendance.attendee.id %></td>
+      <td><%= attendance.attendee.name %></td>
     </tr>  
     
     <% end %>

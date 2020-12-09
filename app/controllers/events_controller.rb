@@ -4,9 +4,11 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    user_logged_in
-    upcoming_events
-    prev_events
+    if user_logged_in
+      @past_events = Event.prev_events
+      @upcoming_events = Event.upcoming_events
+      @created_events = current_user.events
+    end
   end
 
   # GET /events/1
@@ -17,9 +19,7 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    # @event = Event.new
-
-    @event = current_user.events.build if user_logged_in
+    @event = Event.new if user_logged_in
   end
 
   # GET /events/1/edit
@@ -28,16 +28,10 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    @event = Event.new(event_params)
-    if current_user
-      @event.user_id = current_user.id
-    else
-      respond_to new_user_session_url
-    end
-
+    @event = current_user.events.build(event_params) if user_logged_in
     respond_to do |format|
       if @event.save
-        Attendance.create(user_id: current_user.id, event_id: @event.id)
+        Attendance.create(attendee_id: current_user.id, attended_event_id: @event.id)
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
@@ -92,11 +86,4 @@ class EventsController < ApplicationController
     end
   end
 
-  def upcoming_events
-    @upcoming_events = Event.where(['events.date > ?', Date.today])
-  end
-
-  def prev_events
-    @prev_events = Event.where(['events.date < ?', Date.today])
-  end
 end
