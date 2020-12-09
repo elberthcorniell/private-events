@@ -1,20 +1,22 @@
 <p id="notice"><%= notice %></p>
+<%# <h1>You are here !</h1> %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @event.title %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @event.date %>
-</p>
-<h1>Attendees</h1>
+<div class="card border-success mb-3" style="max-width: 18rem;">
+  <div class="card-header bg-transparent border-success">Header</div>
+  <div class="card-body text-success">
+    <h5 class="card-title"><strong>Title:</strong>
+      <%= @event.title %></h5>
+    <p class="card-text"><strong>Date:</strong>
+<%= @event.date %></p>
+  </div>
+  <div class="card-footer bg-transparent border-success"><h1>Attendees</h1>
 <% @event.attendances.each do |attendance| %>
   
    <td><%= attendance.user.name %></td>
 
   <% end %>
 <br>
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<%= link_to 'Edit', edit_event_path(@event),class:"btn btn-dark" %> 
+<%= link_to 'Back', events_path,class:"btn btn-dark" %></div>
+</div>
+
