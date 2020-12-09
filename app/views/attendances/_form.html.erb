@@ -1,10 +1,10 @@
-<%= form_with(model: attandance, local: true) do |form| %>
-  <% if attandance.errors.any? %>
+<%= form_with(model: attendance, local: true) do |form| %>
+  <% if attendance.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(attandance.errors.count, "error") %> prohibited this attandance from being saved:</h2>
+      <h2><%= pluralize(attendance.errors.count, "error") %> prohibited this attendance from being saved:</h2>
 
       <ul>
-        <% attandance.errors.full_messages.each do |message| %>
+        <% attendance.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
@@ -12,20 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :attendee_id %>
-    <%= form.text_field :attendee_id %>
+    <%= form.label :email, 'Attendee:' %><br>
+    <%= form.text_field :email %>
   </div>
 
   <div class="field">
-    <%= form.label :users %>
-    <%= form.text_field :users %>
+    <%= form.label :event, 'Event:' %><br>
+    <%= form.text_field :event, value: @event.title, disabled: true %>
+    <%= form.text_field :attended_event_id, value: request.params["event"], hidden: true %>
   </div>
-
-  <div class="field">
-    <%= form.label :attended_event_id %>
-    <%= form.text_field :attended_event_id %>
-  </div>
-
+  <br>
   <div class="actions">
     <%= form.submit %>
   </div>

@@ -5,14 +5,14 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     user_logged_in
-    @events = Event.all
+    upcoming_events
+    prev_events
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
     user_logged_in
-    @events = Event.all
   end
 
   # GET /events/new
@@ -87,5 +87,13 @@ class EventsController < ApplicationController
     else
       redirect_to new_user_session_url
     end
+  end
+
+  def upcoming_events 
+    @upcoming_events = Event.where(['events.date > ?', Date.today])
+  end
+  
+  def prev_events 
+    @prev_events = Event.where(['events.date < ?', Date.today])
   end
 end

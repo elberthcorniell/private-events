@@ -1,22 +1,31 @@
 <p id="notice"><%= notice %></p>
-<%# <h1>You are here !</h1> %>
 
 <div class="card border-success mb-3" style="max-width: 18rem;">
-  <div class="card-header bg-transparent border-success">Header</div>
+  <div class="card-header bg-transparent border-success"><strong><%= @event.title %><strong></div>
   <div class="card-body text-success">
-    <h5 class="card-title"><strong>Title:</strong>
-      <%= @event.title %></h5>
     <p class="card-text"><strong>Date:</strong>
 <%= @event.date %></p>
   </div>
   <div class="card-footer bg-transparent border-success"><h1>Attendees</h1>
-<% @event.attendances.each do |attendance| %>
-  
-   <td><%= attendance.user.name %></td>
-
-  <% end %>
+  <table class="table table-striped table-bordered table-hover">
+    <thead class="thead-dark">
+    <tr>
+    <td>Id</td>
+    <td>Name</td>
+    </tr>
+  </thead>
+  <% @event.attendances.each do |attendance| %>
+    
+    <tr>
+      <td><%= attendance.user.id %></td>
+      <td><%= attendance.user.name %></td>
+    </tr>  
+    
+    <% end %>
+    </table>
 <br>
 <%= link_to 'Edit', edit_event_path(@event),class:"btn btn-dark" %> 
-<%= link_to 'Back', events_path,class:"btn btn-dark" %></div>
+<%= link_to 'Back', events_path,class:"btn btn-dark" %>
+<%= link_to 'Invite', new_attendance_path(:event => @event.id), class:"btn btn-primary" %></div>
 </div>
 

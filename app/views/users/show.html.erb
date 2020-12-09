@@ -1,10 +1,23 @@
-<h1>You are here !</h1>
-<h1>You are here !</h1>
 
-<% @users.attendances.each do |attendance| %>
-  
-   <td><%= attendance.event.title%></td>
-   <br/>
-   <td><%= attendance.event.date%></td>
-
-  <% end %>
+<div class="row">
+   <div class="col-md-6">
+      <h2>Upcoming events!</h1>
+      <% @upcoming_events.each do |attendance| %>
+            
+         <td><%= attendance.event.title%></td>
+         <br/>
+         <td><%= attendance.event.date%></td>
+         
+      <% end %>
+   </div>
+   <div class="col-md-6">
+      <h2>Previous events!</h1>
+      <% @prev_events.each do |attendance| %>
+            
+         <td><%= attendance.event.title%></td>
+         <br/>
+         <td><%= attendance.event.date%></td>
+            
+      <% end %>
+   </div>
+</div>
