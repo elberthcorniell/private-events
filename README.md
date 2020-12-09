@@ -6,7 +6,7 @@
 > will have the ability to create a new events and Invite users to that event, if the user is not logged in
 > he won't be able to
 
-![screenshot](./app_screenshot.png)
+![screenshot](./.github/capture.png)
 
 Additional description about the project and its features.
 
