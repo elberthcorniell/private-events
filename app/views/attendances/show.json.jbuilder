@@ -1,1 +1,1 @@
-json.partial! "attandances/attandance", attandance: @attandance
+json.partial! 'attandances/attandance', attandance: @attandance

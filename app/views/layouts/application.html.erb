@@ -17,11 +17,12 @@
       <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
+    <%= render :partial=> 'layouts/navbar' %>
     <div class="container">
+    
       <h1 class="text-center">Events and Attendance</h1>
       <%= yield %>
       <br/><br/>
-      <%= link_to "Logout", destroy_user_session_url, method: :delete,class:"btn btn-warning" %>
       </div>
 
     <!-- Optional JavaScript; choose one of the two! -->

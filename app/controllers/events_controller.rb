@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: %i[show edit update destroy]
-
+  # before action :user_logged_in, only: %i[show index]
   # GET /events
   # GET /events.json
   def index
@@ -18,7 +18,8 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     # @event = Event.new
-    @event = current_user.events.build
+
+    @event = current_user.events.build if user_logged_in
   end
 
   # GET /events/1/edit
@@ -36,6 +37,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
+        Attendance.create(user_id: current_user.id, event_id: @event.id)
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
@@ -86,14 +88,15 @@ class EventsController < ApplicationController
       true
     else
       redirect_to new_user_session_url
+      false
     end
   end
 
-  def upcoming_events 
+  def upcoming_events
     @upcoming_events = Event.where(['events.date > ?', Date.today])
   end
-  
-  def prev_events 
+
+  def prev_events
     @prev_events = Event.where(['events.date < ?', Date.today])
   end
 end

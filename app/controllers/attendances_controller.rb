@@ -9,13 +9,11 @@ class AttendancesController < ApplicationController
 
   # GET /attendances/1
   # GET /attendances/1.json
-  def show; 
-
-  end
+  def show; end
 
   # GET /attendances/new
   def new
-    @event = Event.find(request.params["event"])
+    @event = Event.find(request.params['event'])
     @attendance = Attendance.new
   end
 
@@ -25,9 +23,9 @@ class AttendancesController < ApplicationController
   # POST /attendances
   # POST /attendances.json
   def create
-    @event = Event.find(params["attendance"]["attended_event_id"])
-    user = User.where(email: params["attendance"]["email"]).first
-    @attendance = Attendance.new(user_id: user.id, event_id: params["attendance"]["attended_event_id"])
+    @event = Event.find(params['attendance']['attended_event_id'])
+    user = User.where(email: params['attendance']['email']).first
+    @attendance = Attendance.new(user_id: user.id, event_id: params['attendance']['attended_event_id'])
     @attendance.user_id = user.id
 
     respond_to do |format|
