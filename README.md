@@ -47,6 +47,28 @@ Additional description about the project and its features.
 
   > run `rails server`
 
+  ### Testing methods
+
+For testing please escute the next steps:
+
+- Execute the following code on the terminal to get the Gems needed:
+
+```
+bundle install
+```
+
+- Run the test with the following command:
+
+```
+rspec ./spec/_spec_user.rb -f d
+```
+```
+rspec ./spec/_spec_event.rb -f d
+```
+```
+rspec ./spec/_spec_attendance.rb -f d
+```
+
 ## Authors
 
 👤 **Elbert Corniel**
