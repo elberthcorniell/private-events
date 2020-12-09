@@ -1,4 +1,9 @@
-<%= form_with(model: event, local: true) do |form| %>
+<div class="card text-center">
+  <div class="card-header bg-info">
+    <h1 class="text-center">New Event</h1>
+  </div>
+  <div class="card-body">
+  <%= form_with(model: event, local: true) do |form| %>
   <% if event.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
@@ -11,17 +16,26 @@
     </div>
   <% end %>
 
-  <div class="field">
+<%# <p>i am here </p> %>
+  <div class="field form-group">
     <%= form.label :title, "Description" %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title,class:"form-control text-center ",placeholder:"Description"  %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :date %>
     <%= form.date_select :date %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-info" %>
   </div>
-<% end %>
+<% end %>    
+
+    
+  </div>
+  <div class="card-footer text-muted">
+    2 days ago
+  </div>
+</div>
+
