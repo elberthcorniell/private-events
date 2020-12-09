@@ -1,3 +1,5 @@
+# rubocop:disable Style/GuardClause
+
 class EventsController < ApplicationController
   before_action :set_event, only: %i[show edit update destroy]
   # before action :user_logged_in, only: %i[show index]
@@ -86,3 +88,5 @@ class EventsController < ApplicationController
     end
   end
 end
+
+# rubocop:enable Style/GuardClause
