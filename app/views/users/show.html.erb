@@ -1,0 +1,23 @@
+
+<div class="row">
+   <div class="col-md-6">
+      <h2>Upcoming events!</h1>
+      <% @upcoming_events.each do |attendance| %>
+            
+         <td><%= attendance.attended_event.title%></td>
+         <br/>
+         <td><%= attendance.attended_event.date%></td>
+         
+      <% end %>
+   </div>
+   <div class="col-md-6">
+      <h2>Previous events!</h1>
+      <% @past_events.each do |attendance| %>
+            
+         <td><%= attendance.attended_event.title%></td>
+         <br/>
+         <td><%= attendance.attended_event.date%></td>
+            
+      <% end %>
+   </div>
+</div>

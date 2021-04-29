@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-success">
+  <div class="container-fluid">
+  <%= link_to 'Events' ,root_path,class:"navbar-brand" %>
+    <%# <a class="navbar-brand" href="#">Navbar</a> %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+        <%= link_to 'Register',new_user_registration_path,class:"nav-link active"%>
+        </li>
+        <li class="nav-item">
+        <%= link_to 'Login', new_user_session_path,class:"nav-link"%>
+        </li>
+        <li class="nav-item">
+        <%= link_to "Logout", destroy_user_session_url, method: :delete,class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+        <%= link_to "My Events", users_path,class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+        <%= link_to "Add New Events", new_event_path,class:"nav-link" %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
