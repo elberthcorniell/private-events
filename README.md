@@ -15,6 +15,10 @@ Additional description about the project and its features.
 - Bootstrap
 - PostgreSQL
 
+## Live Demo
+
+- [Live Demo Link](https://shielded-forest-12569.herokuapp.com/events)
+
 ### Prerequisites
 
 - Ruby 2.7.0
