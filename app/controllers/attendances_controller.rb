@@ -26,7 +26,7 @@ class AttendancesController < ApplicationController
     @event = Event.find(params['attendance']['attended_event_id'])
     user = User.where(email: params['attendance']['email']).first
     @attendance = Attendance.new(attendee_id: user.id, attended_event_id: params['attendance']['attended_event_id'])
-    @attendance.user_id = user.id
+    @attendance.attendee_id = user.id
 
     respond_to do |format|
       if @attendance.save
