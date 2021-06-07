@@ -2,7 +2,6 @@
 
 class EventsController < ApplicationController
   before_action :set_event, only: %i[show edit update destroy]
-  # before action :user_logged_in, only: %i[show index]
   # GET /events
   # GET /events.json
   def index
