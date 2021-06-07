@@ -1,5 +1,3 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
-
 # Private Events
 
 > The project is based on Rails Asociations. If a user is logged in
@@ -15,7 +13,11 @@ Additional description about the project and its features.
 - Ruby
 - Rails
 - Bootstrap
-- SQLite3
+- PostgreSQL
+
+## Live Demo
+
+- [Live Demo Link](https://shielded-forest-12569.herokuapp.com/events)
 
 ### Prerequisites
 
@@ -62,9 +64,11 @@ bundle install
 ```
 rspec ./spec/_spec_user.rb -f d
 ```
+
 ```
 rspec ./spec/_spec_event.rb -f d
 ```
+
 ```
 rspec ./spec/_spec_attendance.rb -f d
 ```
